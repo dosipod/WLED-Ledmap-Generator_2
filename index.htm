@@ -1,1 +1,66 @@
-ds
+<!DOCTYPE html>
+<html>
+  <head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6Z6E9B89C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6Z6E9B89C');
+</script>
+
+
+
+    
+    <meta charset="utf-8">
+    <title>Wled ledmap Generator</title>
+    <link rel="stylesheet" type="text/css" href="XYmapper.css">
+
+    <script src="XYmapper.js"></script>
+
+ 
+  
+  </head>
+  <body>
+     <h1>WLED Map Generator</h1>
+     <p>modified by ALDIY , Add ledmap name input , width and height for MM compatibility  </p>
+     <p>modified Sören Willrodt by Garrett Mace (macetech.com), inspired by Mark Kriegsman</p>
+
+    <p>Code: <a href="https://github.com/dosipod/WLED-Ledmap-Generator">https://github.com/dosipod/WLED-Ledmap-Generator</a>
+      <h3>Generates Maps for WLED [ This tool version does not yet support reordering of leds as this is still WIP ]   </h3>
+      <p>Set the maximum x and y dimensions, layout style (how the LEDs are actually wired), and click Rebuild.</p>
+      <p>Then click LEDs to edit the shape of the array by enabling and disabling pixels. The code is updated in realtime.</p>
+      <p>Copy the resulting function and paste into your map file.</p>
+      <p>The function will map ordinary X-Y coordinates to the irregular array,pixels that land in gaps will be marked with (-1) .</p>
+   
+ 
+    
+    <div class="controls">
+      <input type="checkbox" id="serpentineCHK" onchange="serpentineLayout(this)" checked>Serpentine</input>
+      <input type="checkbox" id="verticalCHK" onchange="verticalLayout(this)">Vertical</input><br>
+      <input type="checkbox" id="vflipCHK" onchange="vflipLayout(this)">V-Flip</input>
+      <input type="checkbox" id="hflipCHK" onchange="hflipLayout(this)">H-Flip</input><br>
+  
+      <br>
+      <div class="inputBox"><label class="inputText">Width</label><input id="xdim" type="number" name="xdim" min="1" value="16"/></div>
+      <div class="inputBox"><label class="inputText">Height</label><input id="ydim" type="number" name="ydim" min="1" value="5"/></div>
+      <div class="textBox"><label class="textBox">LedmapName</label><input id="LedmapN" type="text" size="30" name="Ledmap Name" value="My ledmap"/></div>
+      
+    </div>
+      <button id="rebuildArray" onclick="buildGrid()">Rebuild</button>
+
+    <div id="ledgrid"></div>
+    <div id="result">Map goes here.</div>
+
+    <h1>How to use it </h1>
+    <h2>Create a ledmap and then paste the above code in that ledmap and save and reboot , change the ledmap from under the segment dropdown </h2>
+   <img src="./assets/images/content/How_to_create_LEDMAPS_01.png" alt="Create Ledmap" >
+   <h1>DEMO </h1>
+   <img src="./assets/images/content/how_to_use_map_genrator.gif" alt="Demo" >
+
+    
+  </body>
+</html>
